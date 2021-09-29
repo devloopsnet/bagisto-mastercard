@@ -1,0 +1,26 @@
+{
+    "name": "devloopsnet/bagisto-mastercard",
+    "description": "MasterCard Payment Gateway for Bagisto.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abdullah Al-Faqeir",
+            "email": "abdullah@devloops.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Devloops\\MasterCard\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Devloops\\MasterCard\\Providers\\MasterCardServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}
