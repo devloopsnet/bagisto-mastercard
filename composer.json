@@ -1,14 +1,35 @@
 {
     "name": "devloopsnet/bagisto-mastercard",
     "description": "MasterCard Payment Gateway for Bagisto.",
+    "keywords": [
+        "laravel",
+        "bagisto",
+        "mastercard",
+        "meps"
+    ],
+    "homepage": "https://www.devloops.net",
     "license": "MIT",
     "authors": [
         {
             "name": "Abdullah Al-Faqeir",
-            "email": "abdullah@devloops.net"
+            "email": "abdullah@devloops.net",
+            "homepage": "https://www.devloops.net",
+            "role": "Developer"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^8.0",
+        "illuminate/bus": "^7.0|^8.0",
+        "illuminate/contracts": "^7.0|^8.0",
+        "illuminate/database": "^7.0|^8.0",
+        "illuminate/pagination": "^7.0|^8.0",
+        "illuminate/queue": "^7.0|^8.0",
+        "illuminate/support": "^7.0|^8.0",
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0|^9.0",
+        "mockery/mockery": "^1.3"
+    }
     "autoload": {
         "psr-4": {
             "Devloops\\MasterCard\\": "src/"
