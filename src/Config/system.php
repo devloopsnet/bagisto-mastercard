@@ -31,7 +31,7 @@ return [
             ],
             [
                 'name'          => 'merchant_id',
-                'title'         => 'Merchant ID',
+                'title'         => 'mastercard::app.admin.system.merchant-id',
                 'type'          => 'text',
                 'validation'    => 'required',
                 'channel_based' => true,
@@ -39,7 +39,7 @@ return [
             ],
             [
                 'name'          => 'merchant_password',
-                'title'         => 'Merchant Password',
+                'title'         => 'mastercard::app.admin.system.merchant-password',
                 'type'          => 'text',
                 'validation'    => 'required',
                 'channel_based' => true,
@@ -47,7 +47,7 @@ return [
             ],
             [
                 'name'          => 'test_mode',
-                'title'         => 'Testing Mode',
+                'title'         => 'mastercard::app.admin.system.test-mode',
                 'type'          => 'boolean',
                 'validation'    => 'required',
                 'channel_based' => true,
