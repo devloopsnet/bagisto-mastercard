@@ -1,3 +1,7 @@
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/devloopsnet/bagisto-mastercard.svg?style=for-the-badge)](https://packagist.org/packages/devloopsnet/bagisto-mastercard) ![Postcardware](https://img.shields.io/badge/Postcardware-%F0%9F%92%8C-197593?style=for-the-badge)
+
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/devloopsnet/bagisto-mastercard?style=flat-square)](https://packagist.org/packages/devloopsnet/bagisto-mastercard) [![Total Downloads](https://img.shields.io/packagist/dt/devloopsnet/bagisto-mastercard.svg?style=flat-square)](https://packagist.org/packages/devloopsnet/bagisto-mastercard)
+
 # Bagisto MasterCard Payment Gateway
 
 ### 1. Introduction:
