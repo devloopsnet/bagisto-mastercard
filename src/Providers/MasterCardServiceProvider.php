@@ -5,15 +5,14 @@ namespace Devloops\MasterCard\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class MasterCardServiceProvider
+ * Class MasterCardServiceProvider.
  *
- * @package Devloops\MasterCard\Providers
  * @date 29/09/2021
+ *
  * @author Abdullah Al-Faqeir <abdullah@devloops.net>
  */
 class MasterCardServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap services.
      *
@@ -61,5 +60,4 @@ class MasterCardServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(dirname(__DIR__).'/Config/system.php', 'core');
     }
-
 }

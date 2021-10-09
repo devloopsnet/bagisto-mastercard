@@ -2,21 +2,20 @@
 
 namespace Devloops\MasterCard\Payment;
 
-use Webkul\Payment\Payment\Payment;
 use Illuminate\Support\Facades\Http;
+use Webkul\Payment\Payment\Payment;
 
 /**
- * Class MasterCard
+ * Class MasterCard.
  *
- * @package Devloops\MasterCard\Payment
  * @date 29/09/2021
+ *
  * @author Abdullah Al-Faqeir <abdullah@devloops.net>
  */
 class MasterCard extends Payment
 {
-
     /**
-     * Payment method code
+     * Payment method code.
      *
      * @var string
      */
@@ -37,11 +36,11 @@ class MasterCard extends Payment
         /**
          * @var $cart \Webkul\Checkout\Models\Cart
          */
-        $cart   = $this->getCart();
+        $cart = $this->getCart();
         $params = [
             'apiOperation'          => 'CREATE_CHECKOUT_SESSION',
             'apiPassword'           => $this->getConfigData('merchant_password'),
-            'apiUsername'           => "merchant.".$this->getConfigData('merchant_id'),
+            'apiUsername'           => 'merchant.'.$this->getConfigData('merchant_id'),
             'merchant'              => $this->getConfigData('merchant_id'),
             'order.id'              => "ORDER{$cart->id}",
             'order.amount'          => number_format($cart->grand_total, 3),
@@ -49,7 +48,7 @@ class MasterCard extends Payment
             'interaction.returnUrl' => route('mastercard.success', $cart->id),
         ];
 
-        $rawResult      = Http::contentType("application/x-www-form-urlencoded")
+        $rawResult = Http::contentType('application/x-www-form-urlencoded')
                               ->send('POST', $this->checkoutSessionUrl, [
                                   'body' => http_build_query($params),
                               ])
@@ -62,7 +61,6 @@ class MasterCard extends Payment
 
         throw new \Exception('MasterCard Gateway Purchase Error : '.$apiSessionData['error_explanation']);
     }
-
 
     public function getConfigData($field)
     {
@@ -77,20 +75,19 @@ class MasterCard extends Payment
             'order.amount'                              => number_format($cart->grand_total, 3),
             'order.currency'                            => $cart->cart_currency_code,
             'order.id'                                  => "ORDER{$cart->id}",
-            'order.description'                         => "Payment for order ".$cart->id,
+            'order.description'                         => 'Payment for order '.$cart->id,
             'order.custom.orderId'                      => "ORDER{$cart->id}",
             'interaction.merchant.name'                 => core()->getCurrentChannel()->name,
             'interaction.merchant.phone'                => '',
             'interaction.merchant.email'                => '',
             'interaction.merchant.logo'                 => core()->getCurrentChannel()->logo_url,
-            'interaction.displayControl.billingAddress' => "HIDE",
-            'interaction.displayControl.customerEmail'  => "HIDE",
-            'interaction.displayControl.orderSummary'   => "HIDE",
-            'interaction.displayControl.shipping'       => "HIDE",
+            'interaction.displayControl.billingAddress' => 'HIDE',
+            'interaction.displayControl.customerEmail'  => 'HIDE',
+            'interaction.displayControl.orderSummary'   => 'HIDE',
+            'interaction.displayControl.shipping'       => 'HIDE',
             'interaction.cancelUrl'                     => route('mastercard.cancel', $cart->id),
         ];
 
         return route('mastercard.redirect', $cart->id).'?'.http_build_query($data);
     }
-
 }
