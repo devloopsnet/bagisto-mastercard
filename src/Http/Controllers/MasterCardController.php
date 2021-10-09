@@ -2,26 +2,25 @@
 
 namespace Devloops\MasterCard\Http\Controllers;
 
+use Devloops\MasterCard\Payment\MasterCard;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Webkul\Checkout\Facades\Cart;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Contracts\View\Factory;
-use Devloops\MasterCard\Payment\MasterCard;
 use Webkul\Sales\Repositories\OrderRepository;
-use Illuminate\Contracts\Foundation\Application;
 
 /**
- * Class MasterCardController
+ * Class MasterCardController.
  *
- * @package Devloops\MasterCard\Http\Controllers
  * @date 29/09/2021
+ *
  * @author Abdullah Al-Faqeir <abdullah@devloops.net>
  */
 class MasterCardController extends Controller
 {
-
     /**
-     * OrderRepository object
+     * OrderRepository object.
      *
      * @var \Webkul\Sales\Repositories\OrderRepository
      */
@@ -30,8 +29,7 @@ class MasterCardController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param  \Webkul\Sales\Repositories\OrderRepository  $orderRepository
-     *
+     * @param \Webkul\Sales\Repositories\OrderRepository $orderRepository
      */
     public function __construct(
         OrderRepository $orderRepository,
@@ -42,8 +40,9 @@ class MasterCardController extends Controller
     /**
      * @param $cartId
      *
-     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function success($cartId): RedirectResponse
     {
@@ -95,7 +94,7 @@ class MasterCardController extends Controller
             return redirect()->to(route('mastercard.cancel', $cartId));
         }
         $url = MasterCard::POST_URL;
+
         return view('mastercard::redirect', compact('data', 'url'));
     }
-
 }
